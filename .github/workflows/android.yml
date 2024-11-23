@@ -1,16 +1,8 @@
-name: Magisk Builder
+name: Magisk CI
 
 on:
   push:
     branches: kitsune
-    paths:
-      - "app/**"
-      - "native/**"
-      - "stub/**"
-      - "buildSrc/**"
-      - "build.py"
-      - "gradle.properties"
-      - ".github/workflows/build.yml"
   workflow_dispatch:
 
 jobs:
