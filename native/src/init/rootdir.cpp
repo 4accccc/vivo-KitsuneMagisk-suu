@@ -205,7 +205,7 @@ static void extract_files(bool sbin) {
         mmap_data magisk(m32);
         unlink(m32);
         int fd = xopen("magisk32", O_WRONLY | O_CREAT, 0755);
-        fd_channel ch(fd);
+        fd_stream ch(fd);
         unxz(ch, magisk);
         close(fd);
         patch_socket_name("magisk32");
@@ -214,7 +214,7 @@ static void extract_files(bool sbin) {
         mmap_data magisk(m64);
         unlink(m64);
         int fd = xopen("magisk64", O_WRONLY | O_CREAT, 0755);
-        fd_channel ch(fd);
+        fd_stream ch(fd);
         unxz(ch, magisk);
         close(fd);
         patch_socket_name("magisk64");
@@ -226,7 +226,7 @@ static void extract_files(bool sbin) {
         mmap_data stub(stub_xz);
         unlink(stub_xz);
         int fd = xopen("stub.apk", O_WRONLY | O_CREAT, 0);
-        fd_channel ch(fd);
+        fd_stream ch(fd);
         unxz(ch, stub);
         close(fd);
     }
