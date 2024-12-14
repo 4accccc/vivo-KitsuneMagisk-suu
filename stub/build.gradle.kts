@@ -21,7 +21,6 @@ android {
         applicationId = "io.github.huskydg.magisk"
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("int", "STUB_VERSION", Config.stubVersion)
         buildConfigField("String", "APK_URL", url?.let { "\"$it\"" } ?: "null" )
     }
 

@@ -77,24 +77,7 @@ static void patch_rc_scripts(const char *src_path, const char *tmp_path, bool wr
         rc_list.clear();
 
         // Inject Magisk rc scripts
-        LOGD("Inject magisk rc\n");
-        fprintf(dest.get(), R"EOF(
-on post-fs-data
-    start logd
-    exec %2$s 0 0 -- %1$s/magisk --post-fs-data
-
-on property:vold.decrypt=trigger_restart_framework
-    exec %2$s 0 0 -- %1$s/magisk --service
-
-on nonencrypted
-    exec %2$s 0 0 -- %1$s/magisk --service
-
-on property:sys.boot_completed=1
-    exec %2$s 0 0 -- %1$s/magisk --boot-complete
-
-on property:init.svc.zygote=stopped
-    exec %2$s 0 0 -- %1$s/magisk --zygote-restart
-)EOF", tmp_path, MAGISK_PROC_CON);
+        rust::inject_magisk_rc(fileno(dest.get()), tmp_path);
 
         fclone_attr(fileno(src.get()), fileno(dest.get()));
     }
@@ -114,8 +97,8 @@ on property:init.svc.zygote=stopped
             if (line.starts_with("service zygote ")) {
                 LOGD("Inject zygote restart\n");
                 fprintf(dest.get(), "%s", line.data());
-                fprintf(dest.get(), "    onrestart exec %2$s 0 0 -- %1$s/magisk --zygote-restart\n",
-                        tmp_path, MAGISK_PROC_CON);
+                fprintf(dest.get(),
+                        "    onrestart exec " MAGISK_PROC_CON " 0 0 -- %s/magisk --zygote-restart\n", tmp_path);
                 return true;
             }
             fprintf(dest.get(), "%s", line.data());
@@ -222,7 +205,7 @@ static void extract_files(bool sbin) {
         mmap_data magisk(m32);
         unlink(m32);
         int fd = xopen("magisk32", O_WRONLY | O_CREAT, 0755);
-        fd_channel ch(fd);
+        fd_stream ch(fd);
         unxz(ch, magisk);
         close(fd);
         patch_socket_name("magisk32");
@@ -231,7 +214,7 @@ static void extract_files(bool sbin) {
         mmap_data magisk(m64);
         unlink(m64);
         int fd = xopen("magisk64", O_WRONLY | O_CREAT, 0755);
-        fd_channel ch(fd);
+        fd_stream ch(fd);
         unxz(ch, magisk);
         close(fd);
         patch_socket_name("magisk64");
@@ -243,7 +226,7 @@ static void extract_files(bool sbin) {
         mmap_data stub(stub_xz);
         unlink(stub_xz);
         int fd = xopen("stub.apk", O_WRONLY | O_CREAT, 0);
-        fd_channel ch(fd);
+        fd_stream ch(fd);
         unxz(ch, stub);
         close(fd);
     }
