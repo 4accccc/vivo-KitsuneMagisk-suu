@@ -537,7 +537,7 @@ abstract class MagiskInstallImpl protected constructor(
 
     protected suspend fun direct() = findImage() && extractFiles() && patchBoot() && flashBoot()
 
-    protected fun direct_system() = extractFiles() && "xdirect_install_system \"$installDir\" \"dummy\" \"$AppApkPath\"".sh().isSuccess
+    protected suspend fun direct_system() = extractFiles() && "xdirect_install_system \"$installDir\" \"dummy\" \"$AppApkPath\"".sh().isSuccess
 
     protected suspend fun secondSlot() =
         findSecondary() && extractFiles() && patchBoot() && flashBoot() && postOTA()
