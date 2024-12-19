@@ -213,6 +213,11 @@ done
 
 if [ -f kernel ]; then
   PATCHEDKERNEL=false
+  # patch vivo do_mount_check by wuxianlin
+  # /system -> /syswxl
+  # python3 -c "print(hex(int.from_bytes(b'/system', 'big')^int('bdbcbbbab9b8b7', 16)))"
+  ./magiskboot hexpatch kernel 0092CFC2C9CDDDDA00 0092CFC2C9CEC0DB00 && PATCHEDKERNEL=true
+
   # Remove Samsung RKP
   ./magiskboot hexpatch kernel \
   49010054011440B93FA00F71E9000054010840B93FA00F7189000054001840B91FA00F7188010054 \
@@ -223,6 +228,13 @@ if [ -f kernel ]; then
   # Before: [mov w2, #-221]   (-__NR_execve)
   # After:  [mov w2, #-32768]
   ./magiskboot hexpatch kernel 821B8012 E2FF8F12 && PATCHEDKERNEL=true
+
+  # Disable Samsung PROCA
+  # proca_config -> proca_magisk
+  ./magiskboot hexpatch kernel \
+  70726F63615F636F6E66696700 \
+  70726F63615F6D616769736B00 \
+  && PATCHEDKERNEL=true
 
   # Force kernel to load rootfs for legacy SAR devices
   # skip_initramfs -> want_initramfs
