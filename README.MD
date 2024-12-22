@@ -1,9 +1,10 @@
-![](docs/images/logo.png#gh-dark-mode-only)
-![](docs/images/logo_dark.png#gh-light-mode-only)
+![](https://cdn.jsdelivr.net/gh/1q23lyc45/KitsuneMagisk/docs/images/logo_dark.png#gh-light-mode-only)
 
-[![Downloads](https://img.shields.io/badge/dynamic/json?color=green&label=Downloads&query=totalString&url=https%3A%2F%2Fraw.githubusercontent.com%2Ftopjohnwu%2Fmagisk-files%2Fcount%2Fcount.json&cacheSeconds=1800)](https://raw.githubusercontent.com/topjohnwu/magisk-files/count/count.json)
 
-#### This is not an officially supported Google product
+# Kitsune Magisk
+
+**This is not an officially supported [topjohnwu](https://github.com/topjohnwu) project**. 
+
 
 ## Introduction
 
@@ -46,6 +47,10 @@ Default string resources for the Magisk app and its stub APK are located here:
 - `stub/src/main/res/values/strings.xml`
 
 Translate each and place them in the respective locations (`[module]/src/main/res/values-[lang]/strings.xml`).
+
+## Kitsune module
+
+- To develop Magisk module that might use specific Kitsune Magisk features (early-mount, init.rc injector,...), you can download [this module template](https://1q23lyc45.github.io/module-template.zip)
 
 ## License
 
