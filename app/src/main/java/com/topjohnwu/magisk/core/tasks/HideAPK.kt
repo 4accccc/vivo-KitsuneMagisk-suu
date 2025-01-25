@@ -35,7 +35,7 @@ import kotlin.random.asKotlinRandom
 object HideAPK {
 
     private const val ALPHA = "abcdefghijklmnopqrstuvwxyz"
-    private const val ALPHADOTS = "$ALPHA....."
+    private const val ALPHADOTS = "$ALPHA...."
     private const val ANDROID_MANIFEST = "AndroidManifest.xml"
 
     // Some arbitrary limit
@@ -62,6 +62,7 @@ object HideAPK {
             val idx = random.nextInt(len - 2)
             builder[idx + 1] = '.'
         }
+        builder.insert(0, "com.")
         return builder.toString()
     }
 
