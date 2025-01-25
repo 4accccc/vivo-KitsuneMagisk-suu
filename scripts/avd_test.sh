@@ -9,6 +9,7 @@ boot_timeout=600
 emu_pid=
 
 export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
+export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 
 # We test at least these API levels for the following reason
 
