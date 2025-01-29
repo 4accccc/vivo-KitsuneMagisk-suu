@@ -390,6 +390,7 @@ direct_install_system(){
         mount -t tmpfs -o 'mode=0755' tmpfs "$MIRRORDIR" || return 1
         if is_rootfs; then
             ROOTDIR=/
+            force_bind_mount "/" "$ROOTDIR" || return 1
             mkdir "$SYSTEMDIR"
             force_bind_mount "/system" "$SYSTEMDIR" || return 1
         else
@@ -401,18 +402,18 @@ direct_install_system(){
             else
                 ln -fs ./system_root/system "$SYSTEMDIR"
             fi
-
-            # we are modifying system directly so we need to create /sbin if it does not exist
-            if [ ! -d "$ROOTDIR"/sbin ]; then
-                rm -rf "$ROOTDIR"/sbin
-                mkdir "$ROOTDIR"/sbin
-                if [ ! -d "$ROOTDIR"/sbin ]; then
-                    ui_print "! Can't create tmpfs path /sbin"
-                    return 1;
-                fi
-            fi
-
         fi
+
+        # we are modifying system directly so we need to create /sbin if it does not exist
+        if [ ! -d "$ROOTDIR"/sbin ]; then
+            rm -rf "$ROOTDIR"/sbin
+            mkdir "$ROOTDIR"/sbin
+            if [ ! -d "$ROOTDIR"/sbin ]; then
+                ui_print "! Can't create tmpfs path /sbin"
+                return 1;
+            fi
+        fi
+
 
         # check if /vendor is seperated fs
         if mountpoint -q /vendor; then
