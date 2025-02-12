@@ -25,12 +25,6 @@ jobs:
       - name: Setup environment
         uses: ./.github/actions/setup
 
-      - name: Update libstdc++
-        run: |
-          sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-          sudo apt-get update
-          sudo apt-get install --only-upgrade libstdc++6
-
       - name: Build release
         run: ./build.py -vr all
 
