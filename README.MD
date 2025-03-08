@@ -1,4 +1,5 @@
-![](https://cdn.jsdelivr.net/gh/1q23lyc45/KitsuneMagisk/docs/images/logo_dark.png#gh-light-mode-only)
+![](docs/images/logo.png#gh-dark-mode-only)
+![](docs/images/logo_dark.png#gh-light-mode-only)
 
 
 # Kitsune Magisk
