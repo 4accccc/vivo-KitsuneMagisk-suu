@@ -98,8 +98,8 @@ static void setup_mounts() {
 string find_preinit_device() {
     enum part_t {
         UNKNOWN,
-        CACHE,
         METADATA,
+        CACHE,
         DATA,
     };
 
@@ -137,18 +137,18 @@ string find_preinit_device() {
         part_t &matched = (info.type == "f2fs") ? f2fs_type : ext4_type;
         switch (matched) {
             case UNKNOWN:
-                if (info.target == "/cache") {
-                    matched = CACHE;
-                    break;
-                }
-                [[fallthrough]];
-            case CACHE:
                 if (info.target == "/metadata") {
                     matched = METADATA;
                     break;
                 }
                 [[fallthrough]];
             case METADATA:
+                if (info.target == "/cache") {
+                    matched = CACHE;
+                    break;
+                }
+                [[fallthrough]];
+            case CACHE:
                 if (info.target == "/data") {
                     if (!encrypted || access("/data/unencrypted", F_OK) == 0) {
                         matched = DATA;
