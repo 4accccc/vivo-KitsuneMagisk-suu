@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: ""
-labels: ""
+labels: "bug"
 assignees: ""
 ---
 
@@ -20,11 +20,11 @@ If you experience a crash of Magisk app, dump the full `logcat` **when the crash
 
 If you experience other issues related to Magisk, upload `magisk.log`, and preferably also include a boot `logcat` (start dumping `logcat` when the device boots up)
 
-**DO NOT** open issues regarding root detection.
+**DO NOT** open issues regarding any non-free modules.
 
 **DO NOT** ask for instructions.
 
-**DO NOT** report issues if you have any modules installed.
+**DO NOT** report issues if you have any non-free modules installed.
 
 Without following the rules above, your issue will be closed without explanation.
 
