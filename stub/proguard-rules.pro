@@ -20,13 +20,11 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--obfuscationdictionary ../dict.txt
--classobfuscationdictionary ../dict.txt
--packageobfuscationdictionary ../dict.txt
 
-# Excessive obfuscation
--repackageclasses
--allowaccessmodification
--keepclassmembers class com.topjohnwu.magisk.dummy.* { <init>(); }
--keepclassmembers class com.topjohnwu.magisk.DownloadActivity { <init>(); }
--keepclassmembers class com.topjohnwu.magisk.DelegateRootService { <init>(); }
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+-dontobfuscate
+
+
