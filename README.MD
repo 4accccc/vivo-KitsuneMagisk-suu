@@ -9,17 +9,19 @@
 
 ## Introduction
 
-Magisk is a suite of open source software for customizing Android, supporting devices higher than Android 6.0.<br>
+Kitsune Mask is a suite of open source software for customizing Android, supporting devices higher than Android 6.0.<br>
 Some highlight features:
 
 - **MagiskSU**: Provide root access for applications
 - **Magisk Modules**: Modify read-only partitions by installing modules
 - **MagiskBoot**: The most complete tool for unpacking and repacking Android boot images
-- **Zygisk**: Run code in every Android applications' processes
+- **MagiskHide**: Hide Magisk to prevent detection
 
 ## Downloads
 
 [Github](https://github.com/topjohnwu/Magisk/) is the only source where you can get official Magisk information and downloads.
+
+Please download Kitsune Mask from [Releases](https://github.com/1q23lyc45/KitsuneMagisk/releases/).
 
 [![](https://img.shields.io/badge/Magisk-v27.0-blue)](https://github.com/topjohnwu/Magisk/releases/tag/v27.0)
 [![](https://img.shields.io/badge/Magisk%20Beta-v27.0-blue)](https://github.com/topjohnwu/Magisk/releases/tag/v27.0)
