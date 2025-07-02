@@ -47,7 +47,6 @@ extern int magisktmpfs_fd;
 extern int su_bin_fd;
 extern bool HAVE_32;
 
-void reset_zygisk(bool restore);
 int connect_daemon(int req, bool create = false);
 std::string find_preinit_device();
 void unlock_blocks();
@@ -66,7 +65,6 @@ void exec_task(std::function<void()> &&task);
 void boot_stage_handler(int client, int code);
 void denylist_handler(int client, const sock_cred *cred);
 void su_daemon_handler(int client, const sock_cred *cred);
-void zygisk_handler(int client, const sock_cred *cred);
 
 // Package
 void preserve_stub_apk();

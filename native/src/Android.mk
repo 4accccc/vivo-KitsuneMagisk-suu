@@ -12,7 +12,6 @@ LOCAL_STATIC_LIBRARIES := \
     libbase \
     libsystemproperties \
     libphmap \
-    liblsplt \
     libmagisk-rs \
     libxdl
 
@@ -34,16 +33,9 @@ LOCAL_SRC_FILES := \
     core/su/connect.cpp \
     core/su/pts.cpp \
     core/su/su_daemon.cpp \
-    core/zygisk/entry.cpp \
-    core/zygisk/main.cpp \
-    core/zygisk/hook.cpp \
     core/deny/cli.cpp \
     core/deny/utils.cpp \
     core/deny/revert.cpp \
-    core/zygisk/memory.cpp \
-    core/zygisk/proc_monitor.cpp \
-    core/zygisk/ptrace.cpp \
-    core/zygisk/ptrace_utils.cpp \
     core/deny/ptrace.cpp
 
 LOCAL_LDLIBS := -llog

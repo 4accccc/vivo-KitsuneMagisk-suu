@@ -28,9 +28,6 @@
 [submodule "cxx-rs"]
 	path = native/src/external/cxx-rs
 	url = https://github.com/topjohnwu/cxx.git
-[submodule "lsplt"]
-	path = native/src/external/lsplt
-	url = https://github.com/PerformanC/LSPlt
 [submodule "system_properties"]
 	path = native/src/external/system_properties
 	url = https://github.com/topjohnwu/system_properties.git

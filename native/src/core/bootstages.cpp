@@ -329,9 +329,6 @@ bool MagiskD::post_fs_data() const {
         disable_deny();
     } else {
         exec_common_scripts("post-fs-data");
-        db_settings dbs;
-        get_db_settings(dbs, ZYGISK_CONFIG);
-        zygisk_enabled = dbs[ZYGISK_CONFIG];
         initialize_denylist();
         handle_modules();
     }
@@ -366,5 +363,4 @@ void MagiskD::boot_complete() const {
     check_pkg_refresh();
     get_manager(0, nullptr, true);
 
-    reset_zygisk(true);
 }

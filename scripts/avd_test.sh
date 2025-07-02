@@ -4,7 +4,6 @@ emu="$ANDROID_SDK_ROOT/emulator/emulator"
 avd="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/avdmanager"
 sdk="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
 emu_args_base='-no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -read-only -no-snapshot -show-kernel -memory $memory'
-lsposed_url='https://github.com/JingMatrix/LSPosed/releases/download/v1.10.1/LSPosed-v1.10.1-7115-zygisk-release.zip'
 boot_timeout=600
 emu_pid=
 
@@ -17,13 +16,12 @@ export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 # API 26: legacy rootfs with Treble
 # API 28: legacy system-as-root
 # API 29: 2 Stage Init
-# API 34: latest Android
+# API 35: latest Android
 
-api_list='23 26 28 29 34'
+api_list='23 26 28 29 35'
 
 atd_min_api=30
-atd_max_api=34
-lsposed_min_api=27
+atd_max_api=35
 huge_ram_min_api=26
 
 print_title() {
@@ -147,12 +145,6 @@ test_emu() {
   # Use the app to run setup and reboot
   run_content_cmd setup
 
-  # Install LSPosed
-  if [ $api -ge $lsposed_min_api -a $api -le $atd_max_api ]; then
-    adb push out/lsposed.zip /data/local/tmp/lsposed.zip
-    adb shell echo 'magisk --install-module /data/local/tmp/lsposed.zip' \| /system/xbin/su
-  fi
-
   adb reboot
   wait_emu wait_for_boot
 
@@ -160,16 +152,6 @@ test_emu() {
   run_content_cmd test
   adb shell echo 'su -c id' \| /system/xbin/su 2000 | tee /dev/fd/2 | grep -q 'uid=0'
 
-  # Try to launch LSPosed
-  if [ $api -ge $lsposed_min_api -a $api -le $atd_max_api ]; then
-    adb shell rm -f /data/local/tmp/window_dump.xml
-    adb shell am start -c org.lsposed.manager.LAUNCH_MANAGER com.android.shell/.BugreportWarningActivity
-    while adb shell '[ ! -f /data/local/tmp/window_dump.xml ]'; do
-      sleep 10
-      adb shell uiautomator dump /data/local/tmp/window_dump.xml
-    done
-    adb shell grep -q org.lsposed.manager /data/local/tmp/window_dump.xml
-  fi
 }
 
 
