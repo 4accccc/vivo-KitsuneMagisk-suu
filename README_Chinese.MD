@@ -1,6 +1,3 @@
-## DELTA面具已死
-[Magisk Delta 26.1 四阶测试(26105) 源码](https://github.com/HuskyDG/Magisk/tree/cd3e76848421ffd112ce01dd1beb8e6b9c921a66)
-
 [suu面具网盘仓库](https://www.lanzouq.com/b0aenhnib)
 # 这是suu版本delta面具
 # 这个版本的面具使用"suu"命令获得root授权
