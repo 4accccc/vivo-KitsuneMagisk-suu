@@ -1,4 +1,4 @@
-[中文用户往这里看过来](https://github.com/4accccc/vivo-KitsuneMagisk-suu/blob/master/README_Chinese.MD)
+[中文用户往这里看过来](https://github.com/4accccc/vivo-KitsuneMagisk-suu/blob/main/README_Chinese.MD)
 
 [my suu magisk netdisk](https://www.lanzouq.com/b0aenhnib)
 # This is the "suu" version of Magisk Delta.
