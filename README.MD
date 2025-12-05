@@ -1,4 +1,7 @@
 # Magisk Delta aka Kitsune Mask THEY ARE NOW DEAD. FOR REAL GUYS. SAD.
+# time for magisk suu to retire.
+![](https://github.com/4accccc/randomstuffs/blob/main/execute%20su%20directly.jpeg?raw=true)
+
 [中文用户往这里看过来](https://github.com/4accccc/vivo-KitsuneMagisk-suu/blob/main/README_Chinese.MD)
 
 [my suu magisk netdisk](https://www.lanzouq.com/b0aenhnib)
