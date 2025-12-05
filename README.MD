@@ -1,4 +1,4 @@
-# Magisk Delta aka Kitsune Mask THEY ARE NOW DEAD. FOR REAL GUYS. SAD.
+# Magisk Delta aka Kitsune Mask ARE NOW DEAD. FOR REAL GUYS. SAD.
 # time for magisk suu to retire.
 ![](https://github.com/4accccc/randomstuffs/blob/main/execute%20su%20directly.jpeg?raw=true)
 
