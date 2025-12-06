@@ -1,3 +1,4 @@
+# [VIVO 4X KERNEL AUTO PATCH TOOL RELEASED](https://github.com/4accccc/vivo-4x-kernel-patch) 
 # Magisk Delta aka Kitsune Mask ARE NOW DEAD. FOR REAL GUYS. SAD.
 # time for magisk suu to retire.
 ![](https://github.com/4accccc/randomstuffs/blob/main/execute%20su%20directly.jpeg?raw=true)
